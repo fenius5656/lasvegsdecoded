@@ -1,6 +1,15 @@
 {
   "posts": [
     {
+      "slug": "fontainebleau-most-expensive-mistake",
+      "title": "Fontainebleau: The Most Expensive Mistake in Strip History",
+      "excerpt": "Eighteen years, four owners, and $3.7 billion. The full saga of the Strip's most cursed tower — and whether it's worth it now.",
+      "date": "2026-08-08",
+      "readTime": "4 min read",
+      "tags": ["Hotels", "North Strip", "History"],
+      "cover": "https://i.ytimg.com/vi/ESux5xSRIYM/maxresdefault.jpg"
+    },
+    {
       "slug": "welcome-to-vegas-decoded",
       "title": "Welcome to Vegas Decoded",
       "excerpt": "What this channel is really about — and why every episode gets a two-minute read right here.",

@@ -375,6 +375,33 @@ img { max-width: 100%; display: block; }
 }
 .vd-tip-text { font-size: 14px; color: var(--white); line-height: 1.55; font-weight: 500; }
 
+/* Stat blocks — for key data points inside posts */
+.vd-stats-row { display: flex; gap: 12px; flex-wrap: wrap; margin: 28px 0; }
+.vd-stat-block {
+  background: rgba(8,11,20,0.9); border: 1px solid rgba(240,180,41,0.3);
+  border-radius: 14px; padding: 16px 20px; text-align: center; min-width: 120px; flex: 1;
+}
+.vd-stat-number {
+  font-family: 'Bebas Neue', sans-serif; font-size: 38px; color: var(--gold);
+  line-height: 1; letter-spacing: 0.03em;
+}
+.vd-stat-number .unit { font-size: 22px; vertical-align: super; }
+.vd-stat-label {
+  font-size: 11px; color: var(--muted); text-transform: uppercase;
+  letter-spacing: 0.12em; margin-top: 6px;
+}
+
+/* Price rows — for menus / fees inside posts */
+.vd-price-row { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+.vd-item-label {
+  background: rgba(8,11,20,0.88); border: 1px solid rgba(240,180,41,0.25);
+  color: var(--white); font-size: 14px; font-weight: 500; padding: 8px 18px; border-radius: 100px;
+}
+.vd-price-badge {
+  background: var(--gold); color: #0A0A0A; font-family: 'Bebas Neue', sans-serif;
+  font-size: 18px; letter-spacing: 0.05em; padding: 6px 16px 4px; border-radius: 100px; margin-left: auto;
+}
+
 /* ── FOOTER ── */
 .footer {
   background: var(--bg2);
