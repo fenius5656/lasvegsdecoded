@@ -1,0 +1,47 @@
+name: Sync YouTube videos
+
+# Pulls the latest uploads from the channel's public RSS feed and commits
+# data/videos.json. GitHub Pages then redeploys automatically.
+
+on:
+  schedule:
+    - cron: "0 */6 * * *"   # every 6 hours
+  workflow_dispatch: {}       # lets you run it manually from the Actions tab
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sync-videos
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Fetch latest videos
+        env:
+          # Optional: set VD_CHANNEL_ID as a repo Variable to override the
+          # channelId stored in data/videos.json.
+          VD_CHANNEL_ID: ${{ vars.VD_CHANNEL_ID }}
+          VD_UPDATED: ${{ github.event.repository.updated_at }}
+        run: python scripts/sync_videos.py
+
+      - name: Commit if changed
+        run: |
+          git config user.name "vegas-decoded-bot"
+          git config user.email "actions@users.noreply.github.com"
+          if [[ -n "$(git status --porcelain data/videos.json)" ]]; then
+            git add data/videos.json
+            git commit -m "chore: sync videos [skip ci]"
+            git push
+          else
+            echo "No changes."
+          fi

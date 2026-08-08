@@ -1,0 +1,13 @@
+{
+  "posts": [
+    {
+      "slug": "welcome-to-vegas-decoded",
+      "title": "Welcome to Vegas Decoded",
+      "excerpt": "What this channel is really about — and why every episode gets a two-minute read right here.",
+      "date": "2026-08-08",
+      "readTime": "2 min read",
+      "tags": ["Start Here"],
+      "cover": ""
+    }
+  ]
+}

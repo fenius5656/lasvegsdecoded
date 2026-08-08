@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Posts — Vegas Decoded</title>
+<meta name="description" content="Quick 2–4 minute reads decoding Las Vegas hotels, casinos, food, and deals — the story behind every Vegas Decoded episode.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="index.html">VEGAS <span>DECODED</span></a>
+    <button class="nav-toggle" aria-label="Menu">☰</button>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="videos.html">Videos</a>
+      <a href="posts.html" class="active">Posts</a>
+      <a class="nav-cta" data-channel-link href="#" target="_blank" rel="noopener">Subscribe</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" style="padding:72px 0 56px;">
+  <div class="container hero-inner">
+    <div class="eyebrow">Quick Reads · 2–4 Minutes</div>
+    <h1 style="font-size:clamp(48px,7vw,80px);">THE <span>POSTS</span></h1>
+    <p>Every episode, decoded into a fast read. The prices, the verdicts, and the insider tips — skimmable in a few minutes.</p>
+  </div>
+</header>
+
+<section class="section">
+  <div class="container">
+    <div class="grid" data-posts data-limit="0"></div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="brand">VEGAS <span>DECODED</span></div>
+      <p>The real stories. The real Vegas.</p>
+    </div>
+    <div class="footer-links">
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <a href="index.html">Home</a>
+        <a href="videos.html">Videos</a>
+        <a href="posts.html">Posts</a>
+      </div>
+      <div class="footer-col">
+        <h4>Follow</h4>
+        <a data-channel-link href="#" target="_blank" rel="noopener">YouTube</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© <span id="year"></span> Vegas Decoded</span>
+    <span>Built lean. Hosted free.</span>
+  </div>
+</footer>
+
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+<script src="assets/js/config.js"></script>
+<script src="assets/js/main.js"></script>
+</body>
+</html>
