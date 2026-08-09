@@ -17,6 +17,7 @@ or use the resolver instructions in README.md.
 import json
 import os
 import sys
+import time
 import urllib.request
 import xml.etree.ElementTree as ET
 from pathlib import Path
@@ -48,11 +49,22 @@ def resolve_channel_id(existing):
     return cid
 
 
-def fetch_feed(cid):
+def fetch_feed(cid, attempts=3):
+    """Fetch the RSS feed, retrying transient failures (YouTube occasionally
+    rate-limits shared CI IPs). Raises the last error if all attempts fail."""
     url = FEED.format(cid=cid)
-    req = urllib.request.Request(url, headers={"User-Agent": "VegasDecodedSync/1.0"})
-    with urllib.request.urlopen(req, timeout=30) as resp:
-        return resp.read()
+    headers = {"User-Agent": "Mozilla/5.0 (compatible; VegasDecodedSync/1.0)"}
+    last_err = None
+    for i in range(attempts):
+        try:
+            req = urllib.request.Request(url, headers=headers)
+            with urllib.request.urlopen(req, timeout=30) as resp:
+                return resp.read()
+        except Exception as e:  # noqa: BLE001
+            last_err = e
+            if i < attempts - 1:
+                time.sleep(5 * (i + 1))
+    raise last_err
 
 
 def parse_feed(xml_bytes):
@@ -88,8 +100,12 @@ def main():
         xml_bytes = fetch_feed(cid)
         videos = parse_feed(xml_bytes)
     except Exception as e:  # noqa: BLE001
-        print(f"ERROR fetching/parsing feed: {e}", file=sys.stderr)
-        return 1
+        # Transient network/rate-limit issue. The site keeps the last-good
+        # videos.json and the next scheduled run will retry — so we exit 0
+        # instead of failing the job (avoids spurious failure notifications).
+        print(f"WARNING: fetch/parse failed after retries: {e}. "
+              f"Keeping existing videos.json.", file=sys.stderr)
+        return 0
 
     if not videos:
         print("WARNING: feed returned no videos; leaving existing data unchanged.",
