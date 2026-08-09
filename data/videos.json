@@ -1,7 +1,13 @@
 {
-  "updated": "2026-08-08T16:16:54Z",
+  "updated": "2026-08-08T18:33:07Z",
   "channelId": "UCqtha6iAfnOZOJd3nViaJfA",
   "videos": [
+    {
+      "id": "QSMBbLQ7ClU",
+      "title": "Ranking the New Vegas Restaurants: From Must-Try to Skip",
+      "published": "2026-08-08T22:00:01+00:00",
+      "thumbnail": "https://i2.ytimg.com/vi/QSMBbLQ7ClU/hqdefault.jpg"
+    },
     {
       "id": "Yc5icYCnzvo",
       "title": "The Billionaire Who Almost Outbid Fertitta for Caesars #Shorts #LasVegas #CarlIcahn",
@@ -85,12 +91,6 @@
       "title": "Downtown Vegas Has Exactly One Poker Room Left #Shorts #LasVegas #GoldenNugget",
       "published": "2026-07-30T14:00:24+00:00",
       "thumbnail": "https://i2.ytimg.com/vi/iCbySmmsyig/hqdefault.jpg"
-    },
-    {
-      "id": "f_UwAQTk7x8",
-      "title": "The Oldest Casino on the Strip Still Operating | How It Defied the Implosion Era",
-      "published": "2026-07-29T22:00:22+00:00",
-      "thumbnail": "https://i3.ytimg.com/vi/f_UwAQTk7x8/hqdefault.jpg"
     }
   ]
 }
