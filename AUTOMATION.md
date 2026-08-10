@@ -5,10 +5,7 @@ This makes new **long-form** videos turn into rich, brand-styled blog posts auto
 1. A daily GitHub Action finds long-form videos that don't have a post yet.
 2. It locates the **matching episode script in your Google Drive** and reads its verified facts.
 3. It calls the **Claude API** to write a ~1,000–1,400 word post (TL;DR box, sections, tip, verdict, FAQ).
-4. It opens a **Pull Request** with the draft. **You review and click "Merge" to publish.**
-
-> Why a PR instead of auto-publishing? It's a ~15-second safety check so a wrong fact never
-> hits the live site unattended. Once you trust it, you can flip to fully-auto (see the end).
+4. It **publishes the post directly** — commits to `main`, and GitHub Pages redeploys automatically. No review step.
 
 **Cost:** a few cents per post via the Claude API. Everything else is free.
 
@@ -58,36 +55,26 @@ This narrows the search so it only looks in your scripts folder.
 ### 4. (Optional) Cheaper model + volume — Variables
 
 - `VD_MODEL` = `claude-sonnet-5` → roughly half the per-post cost (default is `claude-opus-5`).
-- `VD_MAX_POSTS` = `2` → how many posts to draft per run (default 2).
-
-### 5. Let Actions open Pull Requests
-
-**Settings → Actions → General → Workflow permissions** → ensure
-**"Allow GitHub Actions to create and approve pull requests"** is checked → Save.
+- `VD_MAX_POSTS` = `2` → how many posts to publish per run (default 2).
 
 ---
 
 ## Using it
 
-- It runs **daily** on its own. To try it now: **Actions tab → "Auto-generate blog posts" → Run workflow**.
-- When it drafts posts, a **Pull Request** appears (Pull requests tab). Open it, skim the post(s),
-  and click **Merge** to publish — GitHub Pages redeploys automatically. If a post looks wrong,
-  just **Close** the PR (nothing publishes) or edit the files on that branch first.
+- It runs **daily** on its own and posts publish automatically — nothing to click.
+- To try it now: **Actions tab → "Auto-generate blog posts" → Run workflow**.
 
 ### First run — watch it once
-The very first run proves the two connections work (Drive + Claude). If it makes no PR:
+The very first run proves the two connections work (Drive + Claude). If it publishes nothing:
 - Open the run logs (**Actions** tab → the run → the "Generate posts" step).
 - "No matching Drive script found" → make sure the scripts folder is shared with the service-account
   email and `GDRIVE_FOLDER_ID` is set.
 - An auth error on Claude → check the `ANTHROPIC_API_KEY` secret and that the account has credit.
 
+> Since posts publish with no review, keep the Claude account funded and glance at the site now and
+> then. If you ever want a review step back, tell me and I'll switch it to open a Pull Request instead.
+
 ---
-
-## Going fully auto (later, optional)
-
-Once you trust the quality, you can skip the PR step and commit posts straight to `main`:
-tell me and I'll switch the workflow to commit directly instead of opening a PR. Until then,
-the one-click merge is your safety net.
 
 ## What it will NOT touch
 - Shorts (only long-form episodes become posts).

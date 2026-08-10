@@ -1,7 +1,8 @@
 name: Auto-generate blog posts
 
-# When new long-form videos appear, draft a rich blog post for each (from the
-# matching Drive script) and open a Pull Request. You review + merge to publish.
+# When new long-form videos appear, write a rich blog post for each (from the
+# matching Drive script) and publish it directly — no review. GitHub Pages
+# redeploys automatically.
 
 on:
   schedule:
@@ -10,7 +11,6 @@ on:
 
 permissions:
   contents: write
-  pull-requests: write
 
 concurrency:
   group: auto-blog
@@ -39,15 +39,14 @@ jobs:
           VD_MAX_POSTS: ${{ vars.VD_MAX_POSTS }}
         run: python scripts/generate_posts.py
 
-      - name: Open a Pull Request if posts were created
-        uses: peter-evans/create-pull-request@v6
-        with:
-          branch: auto-blog/new-posts
-          delete-branch: true
-          commit-message: "Auto-draft blog post(s) from new video(s)"
-          title: "New blog post drafts"
-          body: |
-            Automated draft posts generated from new long-form videos, sourced from the matching Drive scripts.
-
-            **Review before merging** — spot-check the facts, then merge to publish. If a post looks off, close this PR (nothing publishes) or edit the files on this branch.
-          labels: automated, blog
+      - name: Publish new posts (commit directly to main)
+        run: |
+          git config user.name "vegas-decoded-bot"
+          git config user.email "actions@users.noreply.github.com"
+          if [[ -n "$(git status --porcelain posts data/posts.json)" ]]; then
+            git add posts data/posts.json
+            git commit -m "Auto-publish blog post(s) from new video(s)"
+            git push
+          else
+            echo "No new posts to publish."
+          fi
