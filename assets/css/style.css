@@ -128,6 +128,8 @@ img { max-width: 100%; display: block; }
   min-height: 600px;
   display: flex;
   align-items: center;
+  border-bottom: none;
+  background-color: var(--bg);
   background-image:
     linear-gradient(90deg, rgba(8,11,20,0.94) 0%, rgba(8,11,20,0.78) 38%, rgba(8,11,20,0.42) 72%, rgba(8,11,20,0.6) 100%),
     linear-gradient(180deg, rgba(8,11,20,0.25) 0%, rgba(8,11,20,0) 30%, rgba(8,11,20,0.85) 82%, rgba(8,11,20,1) 100%),
