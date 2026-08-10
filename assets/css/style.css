@@ -402,6 +402,23 @@ img { max-width: 100%; display: block; }
   font-size: 18px; letter-spacing: 0.05em; padding: 6px 16px 4px; border-radius: 100px; margin-left: auto;
 }
 
+/* Head-to-head comparison rows — for posts */
+.vd-compare {
+  display: flex; align-items: center; gap: 12px; padding: 10px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.vd-compare:last-child { border-bottom: none; }
+.vd-compare-label { flex: 1; font-size: 14px; font-weight: 500; color: var(--white); }
+.vd-compare-a, .vd-compare-b {
+  font-family: 'Bebas Neue', sans-serif; font-size: 16px; letter-spacing: 0.05em;
+  min-width: 70px; text-align: center; padding: 4px 12px 2px; border-radius: 6px;
+}
+.vd-compare-a { background: rgba(255,59,92,0.15); color: var(--red); }
+.vd-compare-b { background: rgba(46,204,113,0.15); color: var(--green); }
+.vd-compare-vs {
+  font-family: 'DM Mono', monospace; font-size: 10px; color: var(--muted); letter-spacing: 0.1em;
+}
+
 /* ── FOOTER ── */
 .footer {
   background: var(--bg2);
