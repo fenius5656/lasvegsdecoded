@@ -140,7 +140,7 @@ img { max-width: 100%; display: block; }
     linear-gradient(180deg, rgba(8,11,20,0.18) 0%, rgba(8,11,20,0) 44%, rgba(8,11,20,0.5) 80%, rgba(8,11,20,0.9) 94%, rgba(8,11,20,1) 100%),
     url('../img/hero.jpg');
   background-size: cover;
-  background-position: center 24%;
+  background-position: center 48%;
   background-repeat: no-repeat;
 }
 @media (max-width: 760px) {
@@ -148,7 +148,7 @@ img { max-width: 100%; display: block; }
     height: auto;
     min-height: 480px;
     max-height: none;
-    background-position: center 30%;
+    background-position: center 52%;
     background-image:
       linear-gradient(180deg, rgba(8,11,20,0.68) 0%, rgba(8,11,20,0.5) 44%, rgba(8,11,20,0.85) 88%, rgba(8,11,20,1) 100%),
       url('../img/hero.jpg');
