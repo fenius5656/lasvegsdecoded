@@ -1,0 +1,53 @@
+name: Auto-generate blog posts
+
+# When new long-form videos appear, draft a rich blog post for each (from the
+# matching Drive script) and open a Pull Request. You review + merge to publish.
+
+on:
+  schedule:
+    - cron: "30 15 * * *"   # once a day, 30 min after a video sync window
+  workflow_dispatch: {}       # run manually from the Actions tab
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: auto-blog
+  cancel-in-progress: false
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install -r scripts/requirements.txt
+
+      - name: Generate posts from new videos
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          GDRIVE_SA_KEY: ${{ secrets.GDRIVE_SA_KEY }}
+          GDRIVE_FOLDER_ID: ${{ vars.GDRIVE_FOLDER_ID }}
+          VD_MODEL: ${{ vars.VD_MODEL }}
+          VD_MAX_POSTS: ${{ vars.VD_MAX_POSTS }}
+        run: python scripts/generate_posts.py
+
+      - name: Open a Pull Request if posts were created
+        uses: peter-evans/create-pull-request@v6
+        with:
+          branch: auto-blog/new-posts
+          delete-branch: true
+          commit-message: "Auto-draft blog post(s) from new video(s)"
+          title: "New blog post drafts"
+          body: |
+            Automated draft posts generated from new long-form videos, sourced from the matching Drive scripts.
+
+            **Review before merging** — spot-check the facts, then merge to publish. If a post looks off, close this PR (nothing publishes) or edit the files on this branch.
+          labels: automated, blog

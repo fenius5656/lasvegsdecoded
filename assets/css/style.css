@@ -453,6 +453,31 @@ img { max-width: 100%; display: block; }
   font-family: 'DM Mono', monospace; font-size: 10px; color: var(--muted); letter-spacing: 0.1em;
 }
 
+/* TL;DR / Quick Answer box — top of long posts */
+.tldr-box {
+  background: rgba(240,180,41,0.06);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--gold);
+  border-radius: 0 12px 12px 0;
+  padding: 20px 24px;
+  margin: 28px 0;
+}
+.tldr-label {
+  font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.18em;
+  text-transform: uppercase; color: var(--gold); margin-bottom: 12px;
+}
+.tldr-box ul { margin: 0; padding-left: 20px; }
+.tldr-box li { margin-top: 8px; color: #E7EAF0; font-size: 15px; }
+
+/* FAQ section — for SEO + skimmers */
+.faq { display: flex; flex-direction: column; gap: 14px; margin-top: 12px; }
+.faq-item {
+  background: var(--bg2); border: 1px solid var(--border);
+  border-radius: 12px; padding: 16px 20px;
+}
+.faq-q { font-weight: 700; color: var(--white); font-size: 16px; margin-bottom: 6px; }
+.faq-a { color: var(--muted); font-size: 15px; line-height: 1.6; }
+
 /* ── FOOTER ── */
 .footer {
   background: var(--bg2);
