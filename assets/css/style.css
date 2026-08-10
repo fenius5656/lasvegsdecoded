@@ -125,25 +125,32 @@ img { max-width: 100%; display: block; }
    Gradients keep the left-aligned gold headline readable over any photo.
    If the image is missing, the dark --bg2 base still shows — no broken layout. */
 .hero.has-hero-image {
-  min-height: 660px;
+  /* Height scales with viewport WIDTH so the crop ratio (how much of the
+     photo shows) stays consistent on any monitor — prevents the "zoomed in
+     on a wide screen" problem. Capped so it never dominates the page. */
+  height: 46vw;
+  min-height: 520px;
+  max-height: 780px;
   display: flex;
   align-items: center;
   border-bottom: none;
   background-color: var(--bg);
   background-image:
-    linear-gradient(90deg, rgba(8,11,20,0.94) 0%, rgba(8,11,20,0.78) 38%, rgba(8,11,20,0.42) 72%, rgba(8,11,20,0.6) 100%),
-    linear-gradient(180deg, rgba(8,11,20,0.25) 0%, rgba(8,11,20,0) 30%, rgba(8,11,20,0.85) 82%, rgba(8,11,20,1) 100%),
+    linear-gradient(90deg, rgba(8,11,20,0.9) 0%, rgba(8,11,20,0.68) 42%, rgba(8,11,20,0.32) 74%, rgba(8,11,20,0.5) 100%),
+    linear-gradient(180deg, rgba(8,11,20,0.18) 0%, rgba(8,11,20,0) 44%, rgba(8,11,20,0.5) 80%, rgba(8,11,20,0.9) 94%, rgba(8,11,20,1) 100%),
     url('../img/hero.jpg');
   background-size: cover;
-  background-position: center 20%;
+  background-position: center 24%;
   background-repeat: no-repeat;
 }
 @media (max-width: 760px) {
   .hero.has-hero-image {
-    min-height: 520px;
-    background-position: center 26%;
+    height: auto;
+    min-height: 480px;
+    max-height: none;
+    background-position: center 30%;
     background-image:
-      linear-gradient(180deg, rgba(8,11,20,0.72) 0%, rgba(8,11,20,0.55) 40%, rgba(8,11,20,0.9) 84%, rgba(8,11,20,1) 100%),
+      linear-gradient(180deg, rgba(8,11,20,0.68) 0%, rgba(8,11,20,0.5) 44%, rgba(8,11,20,0.85) 88%, rgba(8,11,20,1) 100%),
       url('../img/hero.jpg');
   }
 }
