@@ -1,7 +1,13 @@
 {
-  "updated": "2026-08-10T15:36:25Z",
+  "updated": "2026-08-10T18:55:22Z",
   "channelId": "UCqtha6iAfnOZOJd3nViaJfA",
   "videos": [
+    {
+      "id": "A7_IcIcTTAc",
+      "title": "The Old Cromwell Is Now the Vanderpump Hotel — Here's What Changed",
+      "published": "2026-08-10T22:00:14+00:00",
+      "thumbnail": "https://i2.ytimg.com/vi/A7_IcIcTTAc/hqdefault.jpg"
+    },
     {
       "id": "KOt4cvqr6zo",
       "title": "You Can Explore the Strip's Newest Complex for Free #Shorts #LasVegas #BLVD",
@@ -85,12 +91,6 @@
       "title": "This $39 Magic Show Has a Higher Rating Than Cirque du Soleil #LasVegas #VegasDeals",
       "published": "2026-08-01T13:00:22+00:00",
       "thumbnail": "https://i3.ytimg.com/vi/20x6mVryXg4/hqdefault.jpg"
-    },
-    {
-      "id": "t7F98RlYlME",
-      "title": "The #1 Rated Show in Vegas Costs $50 #Shorts #LasVegas #MatFranco",
-      "published": "2026-07-31T13:00:10+00:00",
-      "thumbnail": "https://i1.ytimg.com/vi/t7F98RlYlME/hqdefault.jpg"
     }
   ]
 }
