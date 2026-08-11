@@ -1,7 +1,13 @@
 {
-  "updated": "2026-08-11T07:02:05Z",
+  "updated": "2026-08-11T12:57:53Z",
   "channelId": "UCqtha6iAfnOZOJd3nViaJfA",
   "videos": [
+    {
+      "id": "8m_ylP0f2hg",
+      "title": "Panda Express Built the Strip's Biggest New Thing #Shorts #LasVegas #BLVD",
+      "published": "2026-08-11T14:00:21+00:00",
+      "thumbnail": "https://i1.ytimg.com/vi/8m_ylP0f2hg/hqdefault.jpg"
+    },
     {
       "id": "A7_IcIcTTAc",
       "title": "The Old Cromwell Is Now the Vanderpump Hotel — Here's What Changed",
@@ -85,12 +91,6 @@
       "title": "Fontainebleau Las Vegas: The Most Expensive Mistake in Strip History",
       "published": "2026-08-01T22:00:06+00:00",
       "thumbnail": "https://i2.ytimg.com/vi/ESux5xSRIYM/hqdefault.jpg"
-    },
-    {
-      "id": "20x6mVryXg4",
-      "title": "This $39 Magic Show Has a Higher Rating Than Cirque du Soleil #LasVegas #VegasDeals",
-      "published": "2026-08-01T13:00:22+00:00",
-      "thumbnail": "https://i3.ytimg.com/vi/20x6mVryXg4/hqdefault.jpg"
     }
   ]
 }
