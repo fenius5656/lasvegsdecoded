@@ -1,7 +1,13 @@
 {
-  "updated": "2026-08-12T07:20:28Z",
+  "updated": "2026-08-12T13:02:39Z",
   "channelId": "UCqtha6iAfnOZOJd3nViaJfA",
   "videos": [
+    {
+      "id": "RdQvqFZBZik",
+      "title": "Netflix House Coming to Vegas – Huge New Attraction!",
+      "published": "2026-08-12T14:00:21+00:00",
+      "thumbnail": "https://i3.ytimg.com/vi/RdQvqFZBZik/hqdefault.jpg"
+    },
     {
       "id": "8m_ylP0f2hg",
       "title": "Panda Express Built the Strip's Biggest New Thing #Shorts #LasVegas #BLVD",
@@ -85,12 +91,6 @@
       "title": "Why $162 Cirque Shows Got Beat by $50 Magic Acts #Shorts #LasVegas #VegasShows",
       "published": "2026-08-02T13:00:03+00:00",
       "thumbnail": "https://i4.ytimg.com/vi/7_90JkxC4ZE/hqdefault.jpg"
-    },
-    {
-      "id": "ESux5xSRIYM",
-      "title": "Fontainebleau Las Vegas: The Most Expensive Mistake in Strip History",
-      "published": "2026-08-01T22:00:06+00:00",
-      "thumbnail": "https://i2.ytimg.com/vi/ESux5xSRIYM/hqdefault.jpg"
     }
   ]
 }
