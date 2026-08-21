@@ -1,7 +1,13 @@
 {
-  "updated": "2026-08-20T12:44:25Z",
+  "updated": "2026-08-20T18:40:16Z",
   "channelId": "UCqtha6iAfnOZOJd3nViaJfA",
   "videos": [
+    {
+      "id": "tE5qKFMZkBA",
+      "title": "Best Steakhouses in Vegas, Ranked by Value (2026)",
+      "published": "2026-08-20T22:00:01+00:00",
+      "thumbnail": "https://i1.ytimg.com/vi/tE5qKFMZkBA/hqdefault.jpg"
+    },
     {
       "id": "k9dKhWrAeGE",
       "title": "You Don't Have to Stay at the Vanderpump Hotel to Enjoy It #Shorts #LasVegas #LisaVanderpump",
@@ -85,12 +91,6 @@
       "title": "Fertitta Just Bought Caesars for $17.6 Billion #Shorts #LasVegas #Caesars",
       "published": "2026-08-07T14:00:08+00:00",
       "thumbnail": "https://i3.ytimg.com/vi/NFSJ5s_3aCk/hqdefault.jpg"
-    },
-    {
-      "id": "z4bgyr3LTSA",
-      "title": "Is BLVD Worth It? Las Vegas Strip's Newest Complex",
-      "published": "2026-08-06T22:00:13+00:00",
-      "thumbnail": "https://i3.ytimg.com/vi/z4bgyr3LTSA/hqdefault.jpg"
     }
   ]
 }
