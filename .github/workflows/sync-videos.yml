@@ -28,6 +28,10 @@ jobs:
 
       - name: Fetch latest videos
         env:
+          # Add YOUTUBE_API_KEY (repo secret) to fetch the FULL video catalog.
+          # Without it, only the latest 15 videos are available (RSS limit),
+          # merged into whatever's already in videos.json.
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
           # Optional: set VD_CHANNEL_ID as a repo Variable to override the
           # channelId stored in data/videos.json.
           VD_CHANNEL_ID: ${{ vars.VD_CHANNEL_ID }}

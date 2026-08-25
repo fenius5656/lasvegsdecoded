@@ -71,6 +71,17 @@ The workflow in `.github/workflows/sync-videos.yml` runs every 6 hours.
   **Variable** named `VD_CHANNEL_ID` under *Settings → Secrets and variables →
   Actions → Variables* to override it.)
 
+**Show ALL your videos (recommended):** YouTube's RSS feed only returns the latest
+**15** videos. To list your entire catalog, add a free YouTube Data API key:
+1. In Google Cloud (the same project as the blog automation works): **APIs & Services
+   → Library → YouTube Data API v3 → Enable**.
+2. **APIs & Services → Credentials → Create Credentials → API key** → copy it.
+3. In the repo: **Settings → Secrets and variables → Actions → New repository secret**
+   → name `YOUTUBE_API_KEY`, value = the key.
+4. Run the **Sync YouTube videos** workflow again — it now pulls every video.
+Without the key, the site still works but shows only the latest 15 (and never drops
+older ones it has already seen).
+
 ### 5. Connect the custom domain — lasvegasdecoded.com (Namecheap)
 
 The `CNAME` file in this repo already contains `lasvegasdecoded.com`. The domain is
