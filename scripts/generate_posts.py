@@ -377,6 +377,14 @@ def main():
         print("No new long-form videos need a post.")
         return 0
 
+    # Not configured yet? Skip cleanly (exit 0) so scheduled runs don't fail
+    # and spam failure emails. Add the secrets to enable auto-blogging.
+    if not os.environ.get("ANTHROPIC_API_KEY", "").strip() \
+            or not os.environ.get("GDRIVE_SA_KEY", "").strip():
+        print("Auto-blog secrets not configured (ANTHROPIC_API_KEY / GDRIVE_SA_KEY) — "
+              "skipping. See AUTOMATION.md to enable.")
+        return 0
+
     svc = drive_service()
     created = 0
     for v in todo:
@@ -397,7 +405,11 @@ def main():
         if len(script_text) < 400:
             print("  Script too short; skipping.")
             continue
-        data = generate(script_text, title)
+        try:
+            data = generate(script_text, title)
+        except Exception as e:  # noqa: BLE001
+            print(f"  Generation failed: {e}", file=sys.stderr)
+            continue
         if not data:
             continue
         slug = slugify(data.get("slug") or data["title"])
