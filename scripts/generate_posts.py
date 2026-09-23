@@ -32,8 +32,10 @@ VIDEOS = ROOT / "data" / "videos.json"
 POSTS = ROOT / "data" / "posts.json"
 POSTS_DIR = ROOT / "posts"
 
-MODEL = os.environ.get("VD_MODEL", "claude-opus-5").strip()
-MAX_POSTS = int(os.environ.get("VD_MAX_POSTS", "2"))
+# Note: unset GitHub Actions "vars" arrive as empty strings, not missing —
+# so fall back with `or`, and guard int() against "".
+MODEL = os.environ.get("VD_MODEL", "").strip() or "claude-opus-5"
+MAX_POSTS = int(os.environ.get("VD_MAX_POSTS", "").strip() or "2")
 FOLDER_ID = os.environ.get("GDRIVE_FOLDER_ID", "").strip()
 
 STOPWORDS = {
