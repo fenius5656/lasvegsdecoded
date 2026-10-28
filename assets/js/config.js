@@ -14,8 +14,9 @@ window.VD_CONFIG = {
   // Social links (leave "" to hide).
   social: {
     youtube: "https://www.youtube.com/@LasVegasDecoded",
-    tiktok: "",
-    instagram: ""
+    instagram: "https://www.instagram.com/vegasdecoded.sb/",
+    facebook: "https://www.facebook.com/profile.php?id=61595757601502",
+    tiktok: ""
   },
 
   // How many videos to show on the home page.

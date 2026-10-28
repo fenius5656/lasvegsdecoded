@@ -19,6 +19,26 @@
     if (cfg.channelUrl) a.href = cfg.channelUrl;
   });
 
+  /* ---- Render social links into the footer "Follow" column (all pages) ---- */
+  function renderSocial() {
+    const s = cfg.social || {};
+    const order = [
+      ['YouTube', s.youtube || cfg.channelUrl],
+      ['Instagram', s.instagram],
+      ['Facebook', s.facebook],
+      ['TikTok', s.tiktok],
+    ].filter(([, url]) => url);
+    if (!order.length) return;
+    document.querySelectorAll('.footer-col').forEach(col => {
+      const h = col.querySelector('h4');
+      if (h && h.textContent.trim().toLowerCase() === 'follow') {
+        col.innerHTML = '<h4>Follow</h4>' + order.map(([name, url]) =>
+          `<a href="${encodeURI(url)}" target="_blank" rel="noopener">${name}</a>`).join('');
+      }
+    });
+  }
+  renderSocial();
+
   /* ---- Helpers ---- */
   const esc = (s) => String(s == null ? '' : s)
     .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
